@@ -1,0 +1,20 @@
+name: Test Project
+on: push
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Get Code
+          # special action defined by GitHub, we don't need to define it
+            uses: actions/checkout@v3
+          - name: Install NodeJS
+          # special action defined by GitHub, we don't need to define it
+            uses: actions/setup-node@v3
+            with:
+                node-version: 18
+          - name: Install Dependencies
+            run: npm ci
+          - name: Run Tests
+            run: npm test
+
+            
